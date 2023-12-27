@@ -13,6 +13,7 @@ fruit_list = fruit_list.set_index('Fruit')
 #To select fruits from the csv list
 #streamlit.multiselect ("Pick some fruits:",list(fruit_list.Fruit))
 fruits_selected=streamlit.multiselect ("Pick some fruits:",list(fruit_list.index),['Avocado','Lime'])
+fruits_to_show = fruit_list.loc[fruits_selected]
 
 #Display the overall csv table 
 streamlit.dataframe(fruit_list)
