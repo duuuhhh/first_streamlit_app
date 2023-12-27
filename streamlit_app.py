@@ -16,4 +16,4 @@ fruits_selected=streamlit.multiselect ("Pick some fruits:",list(fruit_list.index
 fruits_to_show = fruit_list.loc[fruits_selected]
 
 #Display the overall csv table 
-streamlit.dataframe(fruit_list)
+streamlit.dataframe(fruits_to_show)
