@@ -7,10 +7,10 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 import pandas
 fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #fruit_list = fruit_list.set_index('Fruit')
-fruit_list = fruit_list.set_index('Serving_Size')
+#fruit_list = fruit_list.set_index('Serving_Size')
 
 #To select fruits from the csv list
-streamlit.multiselect ("Pick some fruits:",list(fruit_list.index))
+streamlit.multiselect ("Pick some fruits:",list(fruit_list.Fruit))
 
 #Display the pverall csv table 
 streamlit.dataframe(fruit_list)
