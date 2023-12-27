@@ -1,3 +1,2 @@
-# This program prints Hello, world!
-
-print('Hello, world!')
+import streamlit
+streamlit.title("Healthy Dinner")
