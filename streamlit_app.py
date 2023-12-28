@@ -23,3 +23,10 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 streamlit.text(fruityvice_response.json())
 
 streamlit.header("Fruityvice Fruit Advice!")
+
+# write your own comment -what does the next line do? 
+# To linearize the array formatted json fields
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# write your own comment - what does this do?
+#to display the json in tabular format on the screen
+streamlit.dataframe(fruityvice_normalized)
