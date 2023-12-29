@@ -51,8 +51,8 @@ except URLError as e:
 import snowflake.connector
 streamlit.header("The fruit load list contains:")
 def get_fruit_load_list():
-  with my_cnx_cursor as my_cur:
-    my_cur_execute("select * from pc_rivery_db.public.fruit_load_list")
+  with my_cnx.cursor as my_cur:
+    my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
     return my_cur.fetchall()
 #Add
 if streamlit.button('Get fruit load list'):
@@ -67,5 +67,3 @@ if streamlit.button('Get fruit load list'):
 #add_my_fruit=streamlit.text_input('What fruit would you like information about?','jackfruit')
 #streamlit.write('The user entered ', add_my_fruit)
 #streamlit.text("Thanks for adding jackfruit:")
-
-
