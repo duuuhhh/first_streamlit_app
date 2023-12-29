@@ -47,18 +47,25 @@ except URLError as e:
 #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 #streamlit.write('The user entered ', fruit_choice)
 
-streamlit.stop()
+#streamlit.stop()
 import snowflake.connector
+streamlit.header("The fruit load list contains:")
+def get_fruit_load_list():
+  with my_cnx_cursor as my_cur:
+    my_cur_execute(" select * from fruit_load_list")
+    return my_cur.fetchall()
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
+if streamlit.button('Ger fruit load list'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_row = get_fruit_load_list()
+  streamlit.text(my_data_row)
+#my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values (' from streamlit')")
-my_data_row = my_cur.fetchall()
-add_my_fruit=streamlit.text_input('What fruit would you like information about?','jackfruit')
-streamlit.write('The user entered ', add_my_fruit)
-streamlit.text("Thanks for adding jackfruit:")
-streamlit.text(my_data_row)
+#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values (' from streamlit')")
+
+#add_my_fruit=streamlit.text_input('What fruit would you like information about?','jackfruit')
+#streamlit.write('The user entered ', add_my_fruit)
+#streamlit.text("Thanks for adding jackfruit:")
 
 
