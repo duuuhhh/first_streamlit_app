@@ -36,7 +36,7 @@ try:
 # write your own comment - what does this do?
 #to display the json in tabular format on the screen
 except URLError as e:
-streamlit.error()
+  streamlit.error()
 #Asking user input
 #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 #streamlit.write('The user entered ', fruit_choice)
